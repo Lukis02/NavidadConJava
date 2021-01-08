@@ -30,7 +30,14 @@ public class TareasJava {
 						String tarea = sc.nextLine();
 						
 						
+						
 						pw.println(tarea);
+						System.out.println("¿desea completar la tarea?");
+						if (respuesta.equals("si")) {
+							System.out.println("tarea completada");
+						}else {
+							System.out.println("la tarea no ha sido completada");
+						}
 						pw.close();
 						
 					} catch (Exception e) {
@@ -41,6 +48,7 @@ public class TareasJava {
 				if (respuesta.equals("no")) {
 					System.out.println("vale");
 				} 
+				
 				}
 			
 		}
