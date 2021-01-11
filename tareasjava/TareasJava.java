@@ -9,13 +9,17 @@ import java.io.*;
 
 //creo el fichero de texto en el que aparecerán las tareas//
 public class TareasJava {
+
+	
+	
+	
 	public static void main(String[] args) {
 		
 		int start = 0;
 		while (start == 0) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("¿desea crear una nueva tarea?");
-
+			
 			String respuesta = sc.nextLine();
 
 			
@@ -26,21 +30,33 @@ public class TareasJava {
 						FileWriter tareas = new FileWriter(
 								"src\\tareasjava\\pratica1.txt", true);
 						PrintWriter pw = new PrintWriter(tareas);
+						
 						System.out.println("dime tu nueva tarea");
 						String tarea = sc.nextLine();
 						
 						
+				
 						
-						pw.println(tarea);
+				
+					
 						System.out.println("¿desea completar la tarea?");
-						if (respuesta.equals("si")) {
+						String respuesta2 = sc.nextLine();
+						
+						if (respuesta2.equals("si")) {
 							System.out.println("tarea completada");
-						}else {
-							System.out.println("la tarea no ha sido completada");
+							pw.println(tarea +"("+fecha+")"+"(completada)");
+							
+						}
+						
+						if (respuesta2.equals("no")) {
+							System.out.println("tarea no completada");
+							pw.println(tarea +"("+fecha+")"+"(no completada)");
+						}else{
+							System.out.println("por favor, introduce un si o un no");
 						}
 						pw.close();
-						
-					} catch (Exception e) {
+					}
+							catch (Exception e) {
 						e.printStackTrace();
 					}
 
@@ -48,9 +64,9 @@ public class TareasJava {
 				if (respuesta.equals("no")) {
 					System.out.println("vale");
 				} 
-				
+				sc.close();
 				}
 			
 		}
-	}
-}
+	
+}}

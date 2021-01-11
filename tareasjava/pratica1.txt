@@ -1,12 +1,8 @@
-comprar huevos
 
 
-comprar verdura
-
-
-hola
-
-hola
-holq
-hola
-lpgmbr
+si(Mon Jan 11 10:47:17 CET 2021)(completada)
+no(Mon Jan 11 10:50:03 CET 2021)(completada)
+si(Mon Jan 11 10:52:48 CET 2021)(completada)
+si(Mon Jan 11 10:53:21 CET 2021)(completada)
+si(Mon Jan 11 10:54:07 CET 2021)(no completada)
+comprar pan(Mon Jan 11 11:02:26 CET 2021)(completada)
