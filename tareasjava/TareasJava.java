@@ -14,7 +14,7 @@ public class TareasJava {
 	
 	
 	public static void main(String[] args) {
-		
+		int a=1;
 		int start = 0;
 		while (start == 0) {
 			Scanner sc = new Scanner(System.in);
@@ -35,9 +35,9 @@ public class TareasJava {
 						String tarea = sc.nextLine();
 						
 						
-				
+				while (a==0) {
 						
-				
+						
 					
 						System.out.println("¿desea completar la tarea?");
 						String respuesta2 = sc.nextLine();
@@ -51,10 +51,11 @@ public class TareasJava {
 						if (respuesta2.equals("no")) {
 							System.out.println("tarea no completada");
 							pw.println(tarea +"("+fecha+")"+"(no completada)");
+							pw.close();
 						}else{
 							System.out.println("por favor, introduce un si o un no");
 						}
-						pw.close();
+				}
 					}
 							catch (Exception e) {
 						e.printStackTrace();
