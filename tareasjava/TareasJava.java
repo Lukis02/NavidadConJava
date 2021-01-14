@@ -37,7 +37,7 @@ public class TareasJava {
 
 						
 						
-						while (a==1){
+						
 						System.out.println("¿desea completar la tarea?");
 						
 						String respuesta2 = sc.nextLine();
@@ -48,7 +48,7 @@ public class TareasJava {
 							System.out.println("tarea completada");
 							
 							pw.println(tarea +"("+fecha+")"+"(completada)");
-							
+						
 						
 							}
 						
@@ -61,13 +61,29 @@ public class TareasJava {
 						}else{
 							
 							System.out.println("por favor, introduce un si o un no");
+						}		if (respuesta2.equals("si")) {
+							
+							System.out.println("tarea completada");
+							
+							pw.println(tarea +"("+fecha+")"+"(completada)");
+						
+						
+							}
+						
+						
+						if(respuesta2.equals("no")) {
+							System.out.println("tarea no completada");
+							pw.println(tarea +"("+fecha+")"+"(no completada)");
+						
+							
 						}
+					
 						pw.close();
-					}}
+					}
 							catch (Exception e) {
 						e.printStackTrace();
 							}
-
+break;
 				}else{
 				if (respuesta.equals("no")) {
 					System.out.println("de acuerdo");
