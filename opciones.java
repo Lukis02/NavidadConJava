@@ -1,12 +1,8 @@
 import java.sql.*;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+
 public class opciones {
     static ArrayList<resultado>result= new ArrayList<>();
     static final String JDBC_DRIVER="org.mariadb.jdbc.Driver";
@@ -29,8 +25,8 @@ public class opciones {
             stmt=conn.createStatement();
             String sql="CREATE TABLE tarea "
                     +"(descripcion VARCHAR(255), "
-                    +", (FechayHora DATETIME)";
-            stmt.executeUpdate(sql);
+                    +", (completado BOOLEAN)";
+            PreparedStatement ps=conn.prepareStatement(sql);
             System.out.println("created table in given database...");
 
         } catch (SQLException se) {
@@ -73,15 +69,15 @@ public class opciones {
             System.out.println("creating table in given database....");
             stmt=conn.createStatement();
 
-            String consulta="INSERT INTO tarea VALUES(?, ?)";
+            String consulta="INSERT INTO tarea(descripcion,completado) VALUES(?, ?)";
 
-            PreparedStatement prpStateent= conn.prepareStatement(consulta);
-            prpStateent.setString(1,descripcion);
-            prpStateent.setString(2,);
+            PreparedStatement prpState= conn.prepareStatement(consulta);
+            prpState.setString(1,descripcion);
+
+            prpState.setInt(2,0);
 
 
-
-            ResultSet rs= prpStateent.executeQuery();
+            ResultSet rs= prpState.executeQuery();
 
 
 
@@ -127,8 +123,31 @@ public class opciones {
 
 
     }
+    public static void completar_tarea()throws SQLException {
+        System.out.println("¿Qué tarea quieres completar?");
+        String descripcion = sc.nextLine();
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL,User,Pass);
 
-    public static void borrar_datos() throws SQLException {
+            String sql = "UPDATE tarea set completado = true where descripcion = ? ";
+            PreparedStatement prpState= conn.prepareStatement(sql);
+            prpState.setString(1,descripcion);
+
+            ResultSet rs = prpState.executeQuery();
+        }catch (Exception e ){
+            e.printStackTrace();
+        }
+    }
+    public static void borrar_tarea()throws SQLException {
+
+        Connection conn = DriverManager.getConnection(DB_URL,User,Pass);
+        try {
+            String sql = "TRUNCATE tarea";
+            PreparedStatement prpStatement = conn.prepareStatement(sql);
+            ResultSet rs = prpStatement.executeQuery();
+        }catch (Exception e ){
+            e.printStackTrace();
+        }
 
     }
 }

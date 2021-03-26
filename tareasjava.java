@@ -8,9 +8,8 @@ public class tareasjava {
     static final String Pass = "";
     public static void main(String[] args) throws SQLException {
         Scanner sc = new Scanner(System.in);
-
+        opciones.creartabla();
         System.out.println("¿qué desea?");
-        System.out.println("presiona intro para crear la tabla");
         System.out.println("1--Nueva tarea");
         System.out.println("2--ver tareas");
         System.out.println("3--completar tarea");
@@ -26,7 +25,12 @@ public class tareasjava {
             case 2:
                 opciones.obtener_result();
             break;
-
+            case 3:
+                opciones.completar_tarea();
+            break;
+            case 4:
+                opciones.borrar_tarea();
+            break;
 
             }
         }
